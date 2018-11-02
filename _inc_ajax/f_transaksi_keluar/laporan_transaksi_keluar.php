@@ -12,17 +12,17 @@ include '../../_inc_config/koneksi.php';
 $tgl_awalSource = $_GET['tgl_awal'];
 $tgl_akhirSource = $_GET['tgl_akhir'];
 if(($tgl_awalSource=='') or ($tgl_akhirSource=='')){
-	$title="Laporan Keuangan Transaksi Masuk";
-    $source = $koneksi->query("SELECT * FROM ku_transaksi where jenis_transaksi='M'");
+	$title="Laporan Keuangan Transaksi Keluar";
+    $source = $koneksi->query("SELECT * FROM ku_transaksi where jenis_transaksi='K'");
 }else{
-	$title="Laporan Keuangan Transaksi Masuk dari ".$tgl_awalSource." sampai ".$tgl_akhirSource;
+	$title="Laporan Keuangan Transaksi Keluar dari ".$tgl_awalSource." sampai ".$tgl_akhirSource;
     $useTglAwal = $tgl_awalSource;
     $useTglAkhir = $tgl_akhirSource;
 
 	$tgl_awal = $useTglAwal;
 	$tgl_akhir = $useTglAkhir." 23:59:59";
 
-    $source = $koneksi->query("SELECT * FROM ku_transaksi where jenis_transaksi='M' and tgl_add_transaksi BETWEEN '$tgl_awal' and '$tgl_akhir'");
+    $source = $koneksi->query("SELECT * FROM ku_transaksi where jenis_transaksi='K' and tgl_add_transaksi BETWEEN '$tgl_awal' and '$tgl_akhir'");
 }
 
 ?>
@@ -32,8 +32,8 @@ if(($tgl_awalSource=='') or ($tgl_akhirSource=='')){
 	<th style="padding: 5px;">ID</th>
 	<th style="padding: 5px;">Nama Transaksi</th>
 	<th style="padding: 5px;">Nominal</th>
-	<th style="padding: 5px;">Ket</th>
 	<th style="padding: 5px;">Jenis Transaksi</th>
+	<th style="padding: 5px;">Ket</th>
 	<th style="padding: 5px;">Tanggal</th>
 </tr>
 <?php 
