@@ -36,6 +36,11 @@
                         <i class="mdi mdi-account-network"></i><span class="hide-menu">Anggota</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('laporan_transaksi_masuk')?>" aria-expanded="false">
+                        <i class="mdi mdi-file-document"></i><span class="hide-menu" style="color:blue;">Laporan Transaksi Masuk</span>
+                    </a>
+                </li>
                 
             </ul>
             

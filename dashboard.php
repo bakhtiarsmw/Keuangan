@@ -20,6 +20,7 @@ if(@$_SESSION['username']!=''){
         <link href="dist/css/style.min.css" rel="stylesheet">
         <link href="dist/css/bootstrap.css" rel="stylesheet">
         <link href="dist/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="dist/css/bootstrap-datepicker3.css" rel="stylesheet">
 
     </head>
 
@@ -59,6 +60,7 @@ if(@$_SESSION['username']!=''){
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
         <script src="assets/libs/hullabaloo.min.js"></script>
         <script src="dist/js/myMain.js"></script>
+        <script src="dist/js/bootstrap-datepicker.min.js"></script>
     </html>
 <?php
 }else{

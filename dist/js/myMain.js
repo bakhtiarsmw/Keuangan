@@ -2,7 +2,7 @@ var hulla = new hullabaloo();
 $(document).ready(function() {
 
     showDataProfile();
-    
+
     var table_ajax = $('#tb_barang').DataTable( {
         "ajax": '_inc_ajax/f_transaksi/transaksi.php',
         "order": [[ 0, 'desc' ]],
@@ -30,6 +30,13 @@ $(document).ready(function() {
               "width": "100px","sClass": "text-right"
             },
             { "data": "keterangan" },
+            { "data": null,
+              "render": function ( data, type, row ) {
+                var create = row.tgl_add_transaksi
+                var update = row.tgl_update_transaksi
+                return "<i>Transaksi dibuat pada tgl "+create+"<br> di Update pada tgl : "+update+"<i>";
+              }
+            },
             { "data":  null,
               render: function ( data, type, row ) {
                 return "<a href='#' class='btn btn-primary btn-sm' onclick='getDataUpdate("+row.id_transaksi+")'>Update</a> <a href='#' class='btn btn-danger btn-sm' onclick='popupDelete("+row.id_transaksi+")'>Delete</a>";
@@ -39,6 +46,7 @@ $(document).ready(function() {
             }
         ]
     } );
+
 
     var table_ajax_anggota = $('#tb_anggota').DataTable( {
         "ajax": '_inc_ajax/f_anggota/anggota.php',
@@ -70,6 +78,57 @@ $(document).ready(function() {
             }
         ]
     } );
+
+    var table_ajax_masuk = $('#tb_transaksi_masuk').DataTable( {
+        "ajax": '_inc_ajax/f_transaksi_masuk/transaksi_masuk.php',
+        "order": [[ 0, 'desc' ]],
+        "bDestroy": true,
+        "columns": [
+            { "data": "id_transaksi",
+              "width": "20px",
+              "sClass": "text-center"
+            },
+            { "data": "nama" },
+            { "data":  null,
+              render: function ( data, type, row ) {
+                if(row.jenis_transaksi=='M'){
+                  return '<span style="color:blue;">TRANSAKSI MASUK</span>';
+                }else{
+                  return '<span style="color:red;">TRANSAKSI KELUAR</span>';
+                }
+              }
+            },
+            { "data": "nominal",
+              "render": function ( data, type, row ) {
+                var html = numberWithCommas(data);
+                return html;
+              },
+              "width": "100px","sClass": "text-right"
+            },
+            { "data": "keterangan" },
+            { "data": null,
+              "render": function ( data, type, row ) {
+                var create = row.tgl_add_transaksi
+                var update = row.tgl_update_transaksi
+                return "<i>Transaksi dibuat pada tgl "+create+"<br> di Update pada tgl : "+update+"<i>";
+              }
+            }
+        ]
+    } );
+
+    $(".datepicker").datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        todayHighlight: true,
+    });
+
+    $("#tgl_awal_id").on('changeDate', function(selected) {
+        var startDate = new Date(selected.date.valueOf());
+        $("#tgl_akhir_id").datepicker('setStartDate', startDate);
+        if($("#tgl_awal_id").val() > $("#tgl_akhir_id").val()){
+          $("#tgl_akhir_id").val($("#tgl_awal_id").val());
+        }
+    });
 
     $('.dataTables_length').addClass('bs-select');
     
@@ -290,8 +349,64 @@ $(document).ready(function() {
       }, false);
     });
 
+    // Fungsi Ajax Cari Report Transaksi Masuk dengan Tanggal
+    var formsFindReportTransaksiMasuk = document.getElementsByClassName('find_report_transaksi_masuk');
+    var validation = Array.prototype.filter.call(formsFindReportTransaksiMasuk, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }else{
+            var table_ajax_masuk_find = $('#tb_transaksi_masuk').DataTable( {
+            "ajax": '_inc_ajax/f_transaksi_masuk/transaksi_masuk_find.php?tgl_awal='+$("#tgl_awal_id").val()+'&tgl_akhir='+$("#tgl_akhir_id").val(),
+            "order": [[ 0, 'desc' ]],
+            "bDestroy": true,
+            "columns": [
+                { "data": "id_transaksi",
+                  "width": "20px",
+                  "sClass": "text-center"
+                },
+                { "data": "nama" },
+                { "data":  null,
+                  render: function ( data, type, row ) {
+                    if(row.jenis_transaksi=='M'){
+                      return '<span style="color:blue;">TRANSAKSI MASUK</span>';
+                    }else{
+                      return '<span style="color:red;">TRANSAKSI KELUAR</span>';
+                    }
+                  }
+                },
+                { "data": "nominal",
+                  "render": function ( data, type, row ) {
+                    var html = numberWithCommas(data);
+                    return html;
+                  },
+                  "width": "100px","sClass": "text-right"
+                },
+                { "data": "keterangan" },
+                { "data": null,
+                  "render": function ( data, type, row ) {
+                    var create = row.tgl_add_transaksi
+                    var update = row.tgl_update_transaksi
+                    return "<i>Transaksi dibuat pada tgl "+create+"<br> di Update pada tgl : "+update+"<i>";
+                  }
+                }
+            ]
+        } ); 
+            event.preventDefault();
+            event.stopPropagation();
+
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+
         
 });
+
+function goToReportMasuk(){
+  window.open("_inc_ajax/f_transaksi_masuk/laporan_transaksi_masuk.php?tgl_awal="+$('#tgl_awal_id').val()+"&tgl_akhir="+$('#tgl_akhir_id').val(), '_blank');
+}
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

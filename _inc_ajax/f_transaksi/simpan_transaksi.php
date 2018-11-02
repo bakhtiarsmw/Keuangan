@@ -7,7 +7,9 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
     $jenis=$_POST['jenis_transaksi'];
     $nominal=str_replace(".", "", $_POST['nominal']);
     $ket=$_POST['keterangan'];
-    $sql = "INSERT INTO ku_transaksi VALUES ('', '$nama','$nominal','$jenis','$ket')";
+    date_default_timezone_set('Asia/Jakarta');
+    $tgl=date('Y-m-d H:i:s');
+    $sql = "INSERT INTO ku_transaksi VALUES ('', '$nama','$nominal','$jenis','$ket','$tgl','')";
 
 
     // Log Execute

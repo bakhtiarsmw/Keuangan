@@ -8,7 +8,9 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
     $jenis_transaksi=$_POST['jenis_transaksi'];
     $ket=$_POST['keterangan'];
     $nominal=str_replace(".", "", $_POST['nominal']);
-    $sql = "UPDATE ku_transaksi set nama='$nama', nominal='$nominal', jenis_transaksi='$jenis_transaksi', keterangan='$ket' where id_transaksi='$id'";
+    date_default_timezone_set('Asia/Jakarta');
+    $tgl=date('Y-m-d H:i:s');
+    $sql = "UPDATE ku_transaksi set nama='$nama', nominal='$nominal', jenis_transaksi='$jenis_transaksi', keterangan='$ket', tgl_update_transaksi='$tgl' where id_transaksi='$id'";
 
     // Log Execute
     date_default_timezone_set('Asia/Jakarta');

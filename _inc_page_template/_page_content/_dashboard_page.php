@@ -25,6 +25,7 @@
                             <th class="border-top-0">Jenis Transaksi</th>
                             <th class="border-top-0">Nominal</th>
                             <th class="border-top-0">Ket</th>
+                            <th class="border-top-0">Tanggal</th>
                             <th class="border-top-0">Act</th>
                         </tr>
                     </thead>
@@ -39,8 +40,7 @@
 
 <!-- Modal Transaksi Baru -->
 <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    
+  <div class="modal-dialog modal-dialog-centered" role="document">    
         <div class="modal-content">
             <form action="/" class="needs-validation" novalidate id="form_transaksi_baru">
               <div class="modal-header">
