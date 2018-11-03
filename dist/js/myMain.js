@@ -491,6 +491,23 @@ $(document).ready(function() {
         form.classList.add('was-validated');
       }, false);
     });
+    // Fungsi Ajax Cari Report Transaksi Keluar dengan Tanggal
+    var formsFindReportTransaksiRL = document.getElementsByClassName('form_report_RL');
+    var validation = Array.prototype.filter.call(formsFindReportTransaksiRL, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }else{
+            window.open("_inc_ajax/f_transaksi_RL/laporan_transaksi_RL.php?tgl_awal="+$('#tgl_awal_id').val()+"&tgl_akhir="+$('#tgl_akhir_id').val(), '_blank');
+
+            event.preventDefault();
+            event.stopPropagation();
+
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
 
         
 });

@@ -12,8 +12,10 @@
                     include '_page_content/_laporan_transaksi_masuk_page.php';
                 }else if($page=='laporan_transaksi_keluar'){
                     include '_page_content/_laporan_transaksi_keluar_page.php';
+                }else if($page=='transaksi'){
+                    include '_page_content/_dashboard_page.php';
                 }else{
-                    include '_page_content/_dashboard_page.php';                    
+                    include '_page_content/_dashboard_real_page.php';                    
                 }
             ?>
         </div>       

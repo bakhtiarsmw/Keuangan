@@ -37,13 +37,23 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('laporan_transaksi_masuk')?>" aria-expanded="false">
-                        <i class="mdi mdi-file-document"></i><span class="hide-menu" style="color:blue;">Laporan Transaksi Masuk</span>
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('transaksi')?>" aria-expanded="false">
+                        <i class="mdi mdi-calculator"></i><span class="hide-menu" style="color:blue;">Transaksi </span>
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('transaksi_masuk')?>" aria-expanded="false">
+                        <i class="mdi mdi-file-document"></i><span class="hide-menu" style="color:blue;">Laporan Transaksi Masuk</span>
+                    </a>
+                </li>  
+                <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('laporan_transaksi_keluar')?>" aria-expanded="false">
                         <i class="mdi mdi-file-document"></i><span class="hide-menu" style="color:blue;">Laporan Transaksi Keluar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" data-toggle="modal" data-target="#modalRL" aria-expanded="false">
+                        <i class="mdi mdi-book-plus"></i><span class="hide-menu" style="color:blue;">Laporan Laba Rugi</span>
                     </a>
                 </li>
                 
@@ -96,6 +106,41 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary btn-sm">Ubah Profile</button>
+          </div>
+      </form>
+    </div>    
+  </div>
+</div>
+
+<div class="modal fade" id="modalRL" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">    
+    <div class="modal-content">
+      <form action="/" class="form_report_RL" novalidate id="form_report_RL">
+          <div class="modal-header">
+            <h7 class="modal-title" id="exampleModalCenterTitle">Cetak Laporan Transaksi</h7>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">                        
+            <div class="form-group">
+                <label for="namaProfil">Mulai Tanggal</label>
+                <input type="text" placeholder="Masukkan tanggal Mulai" class="form-control datepicker" name="tgl_awal" id="tgl_awal_id" required>
+                <div class="invalid-feedback">
+                   Isi Tanggal Mulai
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="emailProfil">Sampai Tanggal</label>
+                <input placeholder="Masukkan tanggal Akhir" type="text" class="form-control datepicker" name="tgl_akhir" id="tgl_akhir_id" required>
+                 <div class="invalid-feedback">
+                   Isi Tanggal Akhir
+                </div>
+            </div>    
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary btn-sm">Cari & Cetak Data</button>
           </div>
       </form>
     </div>    

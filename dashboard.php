@@ -21,6 +21,11 @@ if(@$_SESSION['username']!=''){
         <link href="dist/css/bootstrap.css" rel="stylesheet">
         <link href="dist/css/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="dist/css/bootstrap-datepicker3.css" rel="stylesheet">
+        <style type="text/css">
+            a:hover{
+                text-decoration: none;
+            }
+        </style>
 
     </head>
 
