@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('transaksi_masuk')?>" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?pg=<?=base64_encode('laporan_transaksi_masuk')?>" aria-expanded="false">
                         <i class="mdi mdi-file-document"></i><span class="hide-menu" style="color:blue;">Laporan Transaksi Masuk</span>
                     </a>
                 </li>  
@@ -117,7 +117,7 @@
     <div class="modal-content">
       <form action="/" class="form_report_RL" novalidate id="form_report_RL">
           <div class="modal-header">
-            <h7 class="modal-title" id="exampleModalCenterTitle">Cetak Laporan Transaksi</h7>
+            <h7 class="modal-title" id="exampleModalCenterTitle">Cetak Laporan Transaksi Laba Rugi</h7>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

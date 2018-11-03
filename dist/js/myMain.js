@@ -185,11 +185,11 @@ $(document).ready(function() {
               success:function(data){
                   if(data == 'success'){
                         $('#modalAdd').modal('hide');
-                        table_ajax.ajax.reload();    
-                        hulla.send('Success Inserting Data', 'success')
+                        table_ajax.ajax.reload();   
+                        hulla.send('Success Inserting Data', 'success');
                                                     
                   }else{
-                    hulla.send('Inserting Data is Failed', 'danger')
+                    hulla.send('Inserting Data is Failed', 'danger');
                   }
               }
             });
@@ -499,8 +499,8 @@ $(document).ready(function() {
           event.preventDefault();
           event.stopPropagation();
         }else{
+            $('#modalRL').modal('hide');
             window.open("_inc_ajax/f_transaksi_RL/laporan_transaksi_RL.php?tgl_awal="+$('#tgl_awal_id').val()+"&tgl_akhir="+$('#tgl_akhir_id').val(), '_blank');
-
             event.preventDefault();
             event.stopPropagation();
 

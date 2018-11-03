@@ -25,6 +25,30 @@
                             </nav>
                         </div>
                     </div>';
+        }else if($page=='laporan_transaksi_masuk'){
+             echo '  <div class="col-12">
+                        <h4 class="page-title">Laporan Transaksi Masuk</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Laporan Transaksi Masuk</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>';
+        }else if($page=='laporan_transaksi_keluar'){
+             echo '  <div class="col-12">
+                        <h4 class="page-title">Laporan Transaksi Keluar</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Laporan Transaksi Keluar</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>';
         }else{
             echo '  <div class="col-12">
                         <h4 class="page-title">Dashboard</h4>
