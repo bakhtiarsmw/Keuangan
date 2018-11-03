@@ -152,6 +152,20 @@ $(document).ready(function() {
             }
         ]
     } );
+    var table_ajax_log = $('#tb_log').DataTable( {
+        "ajax": '_inc_ajax/f_log/log.php',
+        "order": [[ 0, 'desc' ]],
+        "bDestroy": true,
+        "columns": [
+            { "data": "id_log",
+              "width": "20px",
+              "sClass": "text-center"
+            },
+            { "data": "log" },
+            { "data": "date_log"},
+            { "data": "nama" }
+        ]
+    } );
 
     $(".datepicker").datepicker({
         format: 'yyyy-mm-dd',
